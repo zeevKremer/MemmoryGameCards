@@ -1,4 +1,4 @@
-﻿var SweetsLevel1 = [
+var SweetsLevel1 = [
     { pic1: "images/sweets/ahShelBsli1.jpg", pic2: "back1.jpg", pic3: "back2.jpg", id: 1, flag: 0 },
     { pic1: "images/sweets/ahShelBsli1.jpg", pic2: "back1.jpg", pic3: "back2.jpg", id: 1, flag: 0 },
     { pic1: "images/sweets/tortit.jpg", pic2: "back1.jpg", pic3: "back2.jpg", id: 2, flag: 0 },
@@ -306,35 +306,13 @@ function Start(a, radio1, radio2, radio3, smart) {
 }     
 function CreateBoard(StrCards, radio, smart) {
     StrCards.sort(() => Math.random() - 0.5);
-    level = radio
-    if (smart.checked) {
-        if (level == 1) {
-            let str = '<div class="containr" style="width:330px;">'
-            str += '<div class="row" >'
-            for (let i = 0; i < StrCards.length; i++) {
-                str += '<div class="col-4"  style="padding:1px;border:1px solid;width:110px;height:106px; " id="' + i + '" onclick="Comparison(' + i + ')" ><img  src="images/' + StrCards[i].pic2 + '"  style="width:100%;height:100%;" ></img></div>'
-            }
-            str += '</div><br /><h3 id="timer" ></h3>'
-            document.getElementById("center").innerHTML = ''
-            hr = 0; min = 0; sec = 0;
-            stoptime = false
-            setTimeout('timer()', 1000)
-            return str
-        }
-        else if (level == 2) {
-
-        }
-        else {
-
-        }
-    }
-    else {    
+    level = radio    
     let str = '<div class="row" >'    
-    for (let i = 0; i < StrCards.length; i++) {
+    for (let i = 0; i < StrCards.length; i++) {        
         if (level != 3)
             str += '<div class="col-lg-2 col-md-3 col-sm-6"  style="padding:1px;border:1px solid; " id="' + i + '" onclick="Comparison(' + i + ')" ><img  src="images/' + StrCards[i].pic2 + '"  style="width:100%;height:100%;" ></img></div>'
         else {                       
-            str += '<div class="col-lg-2 col-md-3 col-sm-1"  style="padding:1px;border:1px solid;" id="' + i + '" onclick="Comparison(' + i + ')" ><img  src="images/' + StrCards[i].pic3 + '"  style="width:100%;height:100%;" ></img></div>'            
+            str += '<div class="col-lg-2 col-md-3 col-sm-1"  style="padding:1px;border:1px solid;" id="' + i + '" onclick="Comparison(' + i + ')" ><img  src="images/' + StrCards[i].pic2 + '"  style="width:100%;height:100%;" ></img></div>'            
         }
     }
     str += '</div><br /><h3 id="timer" ></h3>'
@@ -342,8 +320,7 @@ function CreateBoard(StrCards, radio, smart) {
     hr = 0; min = 0; sec = 0;
     stoptime = false
     setTimeout( 'timer()',1000)
-        return str
-    }
+        return str    
 }
 function Comparison(id) {
     if (running == 0) {
@@ -399,8 +376,8 @@ function ToFlip(id, i) {
         document.getElementById("" + i).innerHTML = '<img src=images/' + Cards[i].pic2 + ' style="width:100%;height:100%;" />'
     }
     else {
-        document.getElementById("" + id).innerHTML = '<img src=images/' + Cards[id].pic3 + ' style="width:100%;height:100%;"/>'
-        document.getElementById("" + i).innerHTML = '<img src=images/' + Cards[i].pic3 + ' style="width:100%;height:100%;"/>'
+        document.getElementById("" + id).innerHTML = '<img src=images/' + Cards[id].pic2 + ' style="width:100%;height:100%;"/>'
+        document.getElementById("" + i).innerHTML = '<img src=images/' + Cards[i].pic2 + ' style="width:100%;height:100%;"/>'
     }
     running = 0
 }
